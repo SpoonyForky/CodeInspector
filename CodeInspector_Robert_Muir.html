@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Code Inspector</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+type="text/javascript"></script>
+<style>
+#wrapper{
+	width:400px;
+	margin:auto;
+	align:center;
+}
+.button { 
+	margin:5%;
+	padding:5%;
+	background-color:#cccc99;
+	color:white;
+	font-family: helvetica,arial,sans-serif;
+	font-size:1.1em;
+	border-radius:10px;
+}
+
+#showKeywords {
+	background-color:#cccc00;
+}	
+#menuDiv {
+	height:60px;
+	margin:4%;
+	padding:4%;	
+}
+
+.button:hover{
+	font-size:120%;
+	font-weight:bold;
+}
+		
+#codeDiv {
+   background-color:#ffffcc;
+   color:black;
+   width:100%;
+}
+
+
+
+</style>
+<script>
+$(document).ready(function() {
+    /* Robert Muir
+    Assignment 2
+    Code Inspector 
+    Mouse functions with Jquery
+    */
+    
+    
+    $("style").append(".showKeywords{background-color:#cccc00;}")
+                .append(".showIdentifer{background-color:#cccc99;}")
+                .append(".codeDiv {background-color: #ffffcc; color:black; width: 100%; }");
+    
+                      
+
+    $("#showKeywords.button").click(function(){
+     $(".identifier").removeClass("showIdentifer")
+     $(".keyword").addClass("showKeywords");
+     
+});
+		
+    $("#showVariables.button").click(function(){
+        $(".keyword").removeClass("showKeywords")
+     $(".identifier").addClass("showIdentifer");
+});
+    
+    $("#codeDiv").mouseenter(function(){
+        $(".identifier").removeClass("showIdentifer")
+        $(".keyword").removeClass("showKeywords")
+      //  console.log("mouseenter");
+    });
+    
+    
+    /*  $("#codeDiv").hover(
+        function(){
+            
+            $(".identifier").removeClass("showIdentifer")
+            $(".keyword").removeClass("showKeywords"),
+            // if Mouse enter doesn't work - this will
+            
+        }); */
+    
+    $(".keyword").hover(
+        function(){
+        $(this).addClass("showKeywords")},
+        function(){
+            $(this).removeClass("showKeywords")}
+        );
+     $(".identifier").hover(
+        function(){
+        $(this).addClass("showIdentifer")},
+        function(){
+            $(this).removeClass("showIdentifer")}
+        );
+    
+    
+    
+    
+                          }); // don't alter this is the last line
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="menuDiv"><span id="showVariables" class="button">Variables</span><span id="showKeywords" class="button">Keywords</span></div>
+<div id="codeDiv">
+<br><span class="keyword">import</span> java.io.*;
+<br>
+<br><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Sample</span> {
+
+<br>&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String args[]) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span>int</span> <span class="identifier">count</span> = 0;
+		
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="keyword">for</span> ( <span class="identifier">count</span> = 1 ; <span class="identifier">count</span> &lt; 10 ; <span class="identifier">count</span>++ ){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> ( <span class="identifier">count</span> % 2 == 1 ){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Odd");
+<br>&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Even");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}   
+<br>&nbsp;&nbsp;}
+<br>}     
+</div>
+</div>
+</body>
+</html>
